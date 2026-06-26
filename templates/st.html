@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student personal details </title>
+    </head>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .form-group{
+            margin-bottom:1rem
+        }
+     
+        input[type=number],input[type=text]{
+            padding : 2px;
+            border  : 3px solid white;
+            background-color : rgb(115, 234, 250)
+
+        }
+        .glow {
+                font-size: 25px;
+                color: #0ee4eb;
+                text-align: center;
+                animation: glow 1s ease-in-out infinite alternate;
+            }
+            @-webkit-keyframes glow {
+                from {
+                    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #1adef8e3, 0 0 40px #1adef8e3, 0 0 50px #1adef8e3, 0 0 60px #1adef8e3, 0 0 70px #1adef8e3;
+                }
+  
+                to {
+                    text-shadow: 0 0 20px #fff, 0 0 30px #e7dee2, 0 0 40px #557deb, 0 0 50px #557deb, 0 0 60px #557deb, 0 0 70px #557deb, 0 0 80px #557deb;
+                }
+            }
+            button{
+                text-align : center;
+                color : #1ff7f7;
+                width : 20%;
+                background-color : rgb(7, 47, 51);
+                animation : glow 1s ease-in-out infinite alternate;
+            }
+            /* ADD THIS to st.html <style> block */
+            .result-box {
+                margin-top: 20px;
+                padding: 20px 40px;
+                font-size: 12px;
+                font-weight: bold;
+                color: #0ee4eb;
+                border: 3px solid #0ee4eb;
+                display: inline-block;
+                animation: glow 1s ease-in-out infinite alternate;
+                background-color: rgba(7, 47, 51, 0.8);
+                border-radius: 10px;
+            }
+
+    </style>
+    <body>
+        <center>
+            <h1 class="glow">Student Details</h1>
+            <form action="/predict" method="POST">
+                <div class="form-group">
+                    
+                    <input type="text" id="Name" name="Name" placeholder="Ashok" required >
+                    <br><br>
+                </div>
+
+                <div class="form-group">
+                    
+                    <input type="number" id="Gender" name="Gender" placeholder="0/1" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="CGPA" name="CGPA" placeholder="CGPA e.g(10)" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="Apptitude_score" name="Apptitude_score" placeholder="Apptitude_score e.g(8)" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="Communication_Score" name="Communication_score" placeholder="Communication_score e.g(9)" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="Internship_Experience" name="Internship_Experience" placeholder="Intern_exper (0/1)" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="Projects_completed" name="Projects_completed" placeholder="Projects_completed" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="Extra_Curricular_Score" name="Extra_Curricular_Score" placeholder="Extra_Curricular_Score" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="Academic_Performance" name="Academic_Performance" placeholder="Academic_Performance" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="Prev_Sem_Result" name="Prev_Sem_Result" placeholder="Prev_Sem_Result" required >
+                    <br><br>
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" id="IQ" name="IQ" placeholder="IQ" required >
+                    <br><br>
+                </div>
+
+
+                <button type="submit" class="btn-primary">Predict →</button>
+                <br><br>
+
+            </form>
+
+      {% if status %}
+<div class="result-box">
+    <h2>{{ status }}</h2>
+
+    {% if probability %}
+        <p>Placement Probability : {{ probability }}%</p>
+    {% endif %}
+</div>
+{% endif %}
+        </center>
+    <body>
+    <footer>
+    </footer>
+</html>
